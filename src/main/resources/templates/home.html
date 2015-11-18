@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta th:replace="head_meta :: copy"/>
+    <title>Upload Zipped Java Source Code</title>
+</head>
+<body>
+    <p th:text="${msg}"></p>
+    <form method="post" th:action="@{/upload}" enctype="multipart/form-data">
+        <input type="file" name="file"/>
+        <input type="submit" value="Upload zip archived Java code"/>
+    </form>
+    <form method="post" th:action="@{/logout}">
+        <input type="submit" value="Logout"/>
+    </form>
+    <form>
+        <textarea readonly="" th:if="${compilationResult}" th:text="${compilationResult.message}" style="width: 100%; height: 300px">
+        </textarea>
+    </form>
+    <footer th:replace="footer :: copy"/>
+</body>
+</html>
